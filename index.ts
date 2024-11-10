@@ -42,8 +42,12 @@ bot.onText(/\/start(?:\s+(.+))?/, async (msg, match) => {
   if (msg.chat.type === 'private') {
     if (refCodeMatch) { 
       const refcode = refCodeMatch[1]; 
-      //here is the refcode come from url, the refcode is actually the userid of the other user, now need to connect with the other user to invited user in DB..
+      // 'refcode' is the code
+      // you have to check that refcode is valid and registed user to db or not
+      // then  
+
       console.log(`${userId} reffered by ${refcode}`)
+
     }else{
       try {
         let result;
@@ -538,17 +542,17 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
         break;
 
-      case "start":
-        result = await commands.start(chatId);
-        await bot.sendMessage(chatId, result?.title, {
-          reply_markup: {
-            inline_keyboard: result?.content,
-            force_reply: false, // Disable input field
-          },
-          parse_mode: "HTML",
-        });
+     // case "start":
+      //  result = await commands.start(chatId);
+      //  await bot.sendMessage(chatId, result?.title, {
+     //     reply_markup: {
+     //       inline_keyboard: result?.content,
+      //      force_reply: false, // Disable input field
+      //    },
+      //    parse_mode: "HTML",
+      //  });
 
-        break;
+      //  break;
 
       case "stop":
         result = await commands.stopProcess(chatId);
@@ -562,17 +566,17 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
         break;
 
-      case "unwrap":
-        result = await commands.unwrap(chatId);
-        await bot.sendMessage(chatId, result?.title, {
-          reply_markup: {
-            inline_keyboard: result?.content,
-            force_reply: false, // Disable input field
-          },
-          parse_mode: "HTML",
-        });
+     // case "unwrap":
+     //   result = await commands.unwrap(chatId);
+     //   await bot.sendMessage(chatId, result?.title, {
+     //     reply_markup: {
+     //       inline_keyboard: result?.content,
+     //       force_reply: false, // Disable input field
+     //     },
+     //     parse_mode: "HTML",
+     //   });
 
-        break;
+     //   break;
 
     }
   } catch (e) {
