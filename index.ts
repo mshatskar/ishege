@@ -92,9 +92,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
     switch (action) {
         case "welcome":
           result = await commands.welcome(chatId, username)
-          await bot.sendMessage(chatId, result.title, {
+          await bot.sendMessage(chatId, result?.title, {
             reply_markup: {
-              inline_keyboard: result.content,
+              inline_keyboard: result?.content,
             },
             parse_mode: "HTML",
           });
@@ -103,9 +103,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
   
         case "restart":
           result = await commands.welcome(chatId, username);
-          await bot.sendMessage(chatId, result.title, {
+          await bot.sendMessage(chatId, result?.title, {
             reply_markup: {
-              inline_keyboard: result.content,
+              inline_keyboard: result?.content,
             },
             parse_mode: "HTML",
           });
@@ -129,9 +129,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         break;
       case "selectDex":
         result = await commands.selectDex(chatId);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false,
           },
           parse_mode: "HTML",
@@ -141,9 +141,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "selectRaydiumAmm":
         result = await commands.selectRaydiumAmm(chatId, "RaydiumAmm");
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false,
           },
           parse_mode: "HTML"
@@ -153,9 +153,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "selectPump":
         result = await commands.selectRaydiumAmm(chatId, "PumpFun");
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false,
           },
           parse_mode: "HTML"
@@ -165,9 +165,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "selectMoonshot":
         result = await commands.selectRaydiumAmm(chatId, "Moonshot");
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false,
           },
           parse_mode: "HTML"
@@ -177,9 +177,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "selectMeteora":
         result = await commands.selectRaydiumAmm(chatId, "Meteora");
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false,
           },
           parse_mode: "HTML"
@@ -189,9 +189,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "select2022":
         result = await commands.selectRaydiumAmm(chatId, "Token2022");
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false,
           },
           parse_mode: "HTML"
@@ -201,9 +201,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "boostVolume":
         result = await commands.selectOption(chatId);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -213,9 +213,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "default":
         result = await commands.defaultMode(chatId, username);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -225,9 +225,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "package1":
         result = await commands.defaultSetting(chatId, defaultMode1, username)
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -237,9 +237,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "package2":
         result = await commands.defaultSetting(chatId, defaultMode2, username)
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -249,9 +249,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "customOption":
         result = await commands.customOption(chatId, username);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -261,9 +261,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "makeVolumeWallet":
         result = await commands.makeVolumeWallet(chatId, username);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -279,9 +279,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.sendTokenAddr(msg.chat.id, String(msg.text));
-            await bot.sendMessage(chatId, result.title, {
+            await bot.sendMessage(chatId, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -301,9 +301,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.sendPoolAddr(msg.chat.id, String(msg.text));
-            await bot.sendMessage(chatId, result.title, {
+            await bot.sendMessage(chatId, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -317,9 +317,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "deposit":
         result = await commands.checkDeposit(chatId);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -333,9 +333,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
           `Please wait for a second.`
         );
         result = await commands.confirmWallet(chatId);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -351,9 +351,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.setBuyUpperAmount(msg.chat.id, Number(msg.text));
-            await bot.sendMessage(msg.chat.id, result.title, {
+            await bot.sendMessage(msg.chat.id, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -373,9 +373,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.setBuyUpperAmount(msg.chat.id, Number(msg.text));
-            const resetBuyUpperMessage = await bot.sendMessage(msg.chat.id, result.title, {
+            const resetBuyUpperMessage = await bot.sendMessage(msg.chat.id, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -398,9 +398,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.setBuyLowerAmount(msg.chat.id, Number(msg.text));
-            await bot.sendMessage(msg.chat.id, result.title, {
+            await bot.sendMessage(msg.chat.id, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -420,9 +420,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.setBuyLowerAmount(msg.chat.id, Number(msg.text));
-            const resetBuyLowerMessage = await bot.sendMessage(msg.chat.id, result.title, {
+            const resetBuyLowerMessage = await bot.sendMessage(msg.chat.id, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -443,9 +443,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.setBuyInterval(msg.chat.id, Number(msg.text));
-            await bot.sendMessage(msg.chat.id, result.title, {
+            await bot.sendMessage(msg.chat.id, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -465,9 +465,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.setDuration(msg.chat.id, Number(msg.text));
-            await bot.sendMessage(msg.chat.id, result.title, {
+            await bot.sendMessage(msg.chat.id, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -482,9 +482,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
       case "showVolumeWallet":
         result = await commands.showWallet(chatId)
 
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -500,9 +500,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
         bot.once(`message`, async (msg) => {
           if (msg.text) {
             result = await commands.changeVolumeWallet(chatId, String(msg.text));
-            await bot.sendMessage(chatId, result.title, {
+            await bot.sendMessage(chatId, result?.title, {
               reply_markup: {
-                inline_keyboard: result.content,
+                inline_keyboard: result?.content,
                 force_reply: false, // Disable input field
               },
               parse_mode: "HTML",
@@ -516,9 +516,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "godReset":
         result = await commands.godReset(chatId)
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false
           },
           parse_mode: "HTML",
@@ -528,9 +528,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "resetAgree":
         result = await commands.agreedReset(chatId)
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false
           },
           parse_mode: "HTML"
@@ -540,9 +540,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "start":
         result = await commands.start(chatId);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -552,9 +552,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "stop":
         result = await commands.stopProcess(chatId);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
@@ -564,9 +564,9 @@ bot.on("callback_query", async (query: CallbackQuery) => {
 
       case "unwrap":
         result = await commands.unwrap(chatId);
-        await bot.sendMessage(chatId, result.title, {
+        await bot.sendMessage(chatId, result?.title, {
           reply_markup: {
-            inline_keyboard: result.content,
+            inline_keyboard: result?.content,
             force_reply: false, // Disable input field
           },
           parse_mode: "HTML",
