@@ -8,7 +8,7 @@ import * as helper from "./helper"
 import base58 from "bs58";
 import { cancelProcess, startProcess } from "./helper";
 import { getAssociatedTokenAddress, NATIVE_MINT } from "@solana/spl-token";
-import { unwrapSol } from "../volume_bot/unwrap";
+//import { unwrapSol } from "../volume_bot/unwrap";
 import { startVolumeBot } from "../volume_bot";
 import { defaultMode2 } from "../modes";
 
@@ -483,19 +483,19 @@ export const setDuration = async (chatId: number, duration: number) => {
 
     return { title, content };
 }
-export const start = async (chatId: number) => {
-    const userInfo = await helper.findOfUser(chatId);
-    const poolId = userInfo?.poolAddr
+//export const start = async (chatId: number) => {
+//    const userInfo = await helper.findOfUser(chatId);
+//    const poolId = userInfo?.poolAddr
     // console.log("========================userInfo==============", userInfo)
-    startProcess(chatId);
+//    startProcess(chatId);
 
-    startVolumeBot(userInfo, chatId);
-    const title = `💵 Now Distributing Sol and Trading..... 🔥`
-    const content = [[{ text: `✏️ Click here to see transactions in Dexscreener`, url: `https://dexscreener.com/solana/${poolId!.toLowerCase()}` }],
-    [{ text: `🔴 Stop Volume Bot`, callback_data: `stop` }]]
+//   startVolumeBot(userInfo, chatId);
+//    const title = `💵 Now Distributing Sol and Trading..... 🔥`
+ //   const content = [[{ text: `✏️ Click here to see transactions in Dexscreener`, url: `https://dexscreener.com/solana/${poolId!.toLowerCase()}` }],
+//    [{ text: `🔴 Stop Volume Bot`, callback_data: `stop` }]]
 
-    return { title, content };
-}
+//    return { title, content };
+//}
 
 export const stopProcess = async (chatId: number) => {
     cancelProcess(chatId);
@@ -511,18 +511,18 @@ export const stopProcess = async (chatId: number) => {
     return { title, content }
 }
 
-export const unwrap = async (chatId: number) => {
-    cancelProcess(chatId);
-    const userInfo = await helper.findOfUser(chatId)
-    const privateKey = userInfo?.privateKey
-    const keypair = Keypair.fromSecretKey(base58.decode(privateKey!))
-    await unwrapSol(keypair)
+//export const unwrap = async (chatId: number) => {
+    //cancelProcess(chatId);
+  //  const userInfo = await helper.findOfUser(chatId)
+   // const privateKey = userInfo?.privateKey
+  //  const keypair = Keypair.fromSecretKey(base58.decode(privateKey!))
+  //  await unwrapSol(keypair)
 
-    const publicKey = new PublicKey(userInfo?.publicKey!)
-    const solBalance = (await solanaConnection.getBalance(publicKey)) / LAMPORTS_PER_SOL
+  //  const publicKey = new PublicKey(userInfo?.publicKey!)
+  //  const solBalance = (await solanaConnection.getBalance(publicKey)) / LAMPORTS_PER_SOL
 
-    const title = `<b>💵 Unwrapped WrappedSol to Sol Successfully!</b>\n\n💰 Your Volume bot wallet balance: <code>${solBalance} SOL</code>\n\nℹ️ If you want to restart, then please click Restart button!`
-    const content = [[{ text: `🔄 Restart`, callback_data: `restart` }]]
+  //  const title = `<b>💵 Unwrapped WrappedSol to Sol Successfully!</b>\n\n💰 Your Volume bot wallet balance: <code>${solBalance} SOL</code>\n\nℹ️ If you want to restart, then please click Restart button!`
+  //  const content = [[{ text: `🔄 Restart`, callback_data: `restart` }]]
 
-    return { title, content }
-}
+   // return { title, content }
+//}
