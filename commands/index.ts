@@ -30,7 +30,7 @@ export const welcome = async (chatId: number, username?: string) => {
         return { title, content }
     } else {
         console.log("User's wallet is not set.")
-        const solAmount = (await solanaConnection.getBalance(userInfo?.publicKey)) / LAMPORTS_PER_SOL;
+        const solAmount = (await solanaConnection.getBalance(userInfo?.publicKey!)) / LAMPORTS_PER_SOL;
         const title = `<b>📉📈 MASSVOL bot</b>\n\n💰 Wallet: <code>${userInfo?.publicKey}</code> (${solAmount.toFixed(3)} SOL)\n\nℹ️ Click on 'Boost volume' and start creating FOMO on top DEXs of Solana 🚀`
         const content = [
             [{ text: 'Revenue Share 💵', callback_data: 'revenueShare' }, { text: '❓ How it works', callback_data: 'howitworks' }, ],
